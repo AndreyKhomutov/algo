@@ -1,1 +1,1 @@
-# algo trainig with LeedCode
+# algo training with LeedCode
