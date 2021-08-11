@@ -1,0 +1,1 @@
+# algo trainig with LeedCode
