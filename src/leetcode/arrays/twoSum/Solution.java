@@ -27,7 +27,7 @@ public class Solution {
         }
         return null;
     }
-//T:O(N*N) S:O(1)
+//Time:O(N^2) Space:O(1)
 //    private static int[] twoSum(int[] array, int target) {
 //        for (int p1 = 0; p1 < array.length; p1++) {
 //            int numberToFind = target - array[p1];
