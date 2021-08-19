@@ -7,6 +7,7 @@ public class Solution {
         System.out.println(getWaterUnitsAmount(testArray));
     }
 
+    //time O(N^2) space O(1)
     private static int getWaterUnitsAmount(int[] height) {
         int total = 0;
         for (int i = 0; i < height.length; i++) {
