@@ -1,5 +1,7 @@
 package leetcode.strings.backspaceStringsCompare;
 
+import java.util.Stack;
+
 //https://leetcode.com/problems/backspace-string-compare/
 public class Solution {
     public static void main(String[] args) {
@@ -11,24 +13,38 @@ public class Solution {
     }
 
     public static boolean backspaceCompare(String s, String t) {
+        if (s.length()!=t.length()){
+            return false;
+        }
         return clean(s).equals(clean(t));
     }
 
-    //time O(N) space O(N)
+    //time O(M+N) space O(M+N)
     private static String clean(String s) {
-        char[] chars = s.toCharArray();
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i <= chars.length - 1; ) {
-            if (chars[i]!='#') {
-                result.append(chars[i]);
-                i++;
+        Stack<Character> result = new Stack<>();
+        for (char c : s.toCharArray()){
+            if (c!='#') {
+                result.push(c);
             } else {
-                if (result.length()!=0){
-                    result.delete(result.length()-1, result.length());
-                }
-                i++;
+                if (!result.empty())
+                result.pop();
             }
         }
-        return result.toString();
+        return String.valueOf(result);
+
+//        char[] chars = s.toCharArray();
+//        StringBuilder result = new StringBuilder();
+//        for (int i = 0; i <= chars.length - 1; ) {
+//            if (chars[i]!='#') {
+//                result.append(chars[i]);
+//                i++;
+//            } else {
+//                if (result.length()!=0){
+//                    result.delete(result.length()-1, result.length());
+//                }
+//                i++;
+//            }
+//        }
+//        return result.toString();
     }
 }
