@@ -4,8 +4,9 @@ package leetcode.strings.backspaceStringsCompare;
 public class Solution {
     public static void main(String[] args) {
 //        String s = "ab#c", t = "ad#c";
-        String s = "ab##", t = "c#d#"; //true
+//        String s = "ab##", t = "c#d#"; //true
 //        String s = "xywrrmp", t = "xywrrmu#p"; //true
+        String s = "a##c", t = "#a#c"; //true
         System.out.println(backspaceCompare(s, t));
     }
 
@@ -13,22 +14,21 @@ public class Solution {
         return clean(s).equals(clean(t));
     }
 
+    //time O(N) space O(N)
     private static String clean(String s) {
         char[] chars = s.toCharArray();
         StringBuilder result = new StringBuilder();
-        for (int i = chars.length - 1; i >=0;) {
-            if (chars[i]!='#'){
+        for (int i = 0; i <= chars.length - 1; ) {
+            if (chars[i]!='#') {
                 result.append(chars[i]);
-                i--;
+                i++;
             } else {
-                int counter = 0;
-                while (i>0 && chars[i]=='#') {
-                    i--;
-                    counter++;
+                if (result.length()!=0){
+                    result.delete(result.length()-1, result.length());
                 }
-                i=i-counter;
+                i++;
             }
         }
-        return result.reverse().toString();
+        return result.toString();
     }
 }
