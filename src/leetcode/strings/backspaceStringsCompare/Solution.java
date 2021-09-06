@@ -31,20 +31,5 @@ public class Solution {
             }
         }
         return String.valueOf(result);
-
-//        char[] chars = s.toCharArray();
-//        StringBuilder result = new StringBuilder();
-//        for (int i = 0; i <= chars.length - 1; ) {
-//            if (chars[i]!='#') {
-//                result.append(chars[i]);
-//                i++;
-//            } else {
-//                if (result.length()!=0){
-//                    result.delete(result.length()-1, result.length());
-//                }
-//                i++;
-//            }
-//        }
-//        return result.toString();
     }
 }
